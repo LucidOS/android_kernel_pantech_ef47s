@@ -4,6 +4,17 @@ android_kernel_pantech_ef47s
 Sky VegaRacer2 Kernel Source JB
 Edit by Mir(whdghks913)
 
+
+You Should turn off option "Automatically append version information to the version string"
+
+- ./build.sh menuconfig
+
+- General setup > Automatically append version information to the version string
+
+"CONFIG_LOCALVERSION_AUTO=y" in .config
+
+
+
 Build.sh command list
 
 - ./build.sh
