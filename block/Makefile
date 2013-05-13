@@ -27,3 +27,6 @@ obj-$(CONFIG_IOSCHED_SIO)	+= sio-iosched.o
 
 # Add VR IOSCHED
 obj-$(CONFIG_IOSCHED_VR)        += vr-iosched.o
+
+# Add ROW IOSCHED
+obj-$(CONFIG_IOSCHED_ROW)	+= row-iosched.o
