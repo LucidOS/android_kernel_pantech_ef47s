@@ -54,13 +54,13 @@ static unsigned int enabled = 0;
 
 /*
  * The minimum ammount of time to spend at a frequency before we can ramp down,
- * default is 50ms.
+ * default is 80ms.
  */
-#define DEFAULT_MIN_SAMPLE_TIME 50000;
+#define DEFAULT_MIN_SAMPLE_TIME 80000;
 static unsigned long min_sample_time;
 
-#define FREQ_THRESHOLD 1024000;
-#define RESUME_SPEED 1024000;
+#define FREQ_THRESHOLD 1200000;
+#define RESUME_SPEED 1200000;
 
 static int cpufreq_governor_interactivex(struct cpufreq_policy *policy,
 		unsigned int event);
@@ -71,11 +71,7 @@ static
 struct cpufreq_governor cpufreq_gov_interactivex = {
 	.name = "interactiveX",
 	.governor = cpufreq_governor_interactivex,
-#if defined(CONFIG_ARCH_MSM_SCORPION)
-	.max_transition_latency = 8000000,
-#else
 	.max_transition_latency = 10000000,
-#endif
 	.owner = THIS_MODULE,
 };
 
@@ -360,7 +356,7 @@ static int __init cpufreq_interactivex_init(void)
 }
 
 #ifdef CONFIG_CPU_FREQ_DEFAULT_GOV_INTERACTIVEX
-fs_initcall(cpufreq_interactivex_init);
+pure_initcall(cpufreq_interactivex_init);
 #else
 module_init(cpufreq_interactivex_init);
 #endif
@@ -379,3 +375,5 @@ MODULE_AUTHOR("Mike Chan <mike@android.com>");
 MODULE_DESCRIPTION("'cpufreq_interactiveX' - A cpufreq governor for "
 	"Latency sensitive workloads");
 MODULE_LICENSE("GPL");
+
+

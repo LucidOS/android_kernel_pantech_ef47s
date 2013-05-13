@@ -97,14 +97,14 @@ static unsigned int up_min_freq;
  * to minimize wakeup issues.
  * Set sleep_max_freq=0 to disable this behavior.
  */
-#define DEFAULT_SLEEP_MAX_FREQ 245760
+#define DEFAULT_SLEEP_MAX_FREQ 368640
 static unsigned int sleep_max_freq;
 
 /*
  * The frequency to set when waking up from sleep.
  * When sleep_max_freq=0 this will have no effect.
  */
-#define DEFAULT_SLEEP_WAKEUP_FREQ 1024000
+#define DEFAULT_SLEEP_WAKEUP_FREQ 768000
 static unsigned int sleep_wakeup_freq;
 
 /*
@@ -125,7 +125,7 @@ static unsigned int sample_rate_jiffies;
  * Freqeuncy delta when ramping up.
  * zero disables and causes to always jump straight to max frequency.
  */
-#define DEFAULT_RAMP_UP_STEP 245000
+#define DEFAULT_RAMP_UP_STEP 230400
 static unsigned int ramp_up_step;
 
 /*
@@ -155,7 +155,7 @@ static int cpufreq_governor_savagedzen(struct cpufreq_policy *policy,
 static
 #endif
 struct cpufreq_governor cpufreq_gov_savagedzen = {
-        .name = "SavagedZen",
+        .name = "savagedzen",
         .governor = cpufreq_governor_savagedzen,
         .max_transition_latency = 9000000,
         .owner = THIS_MODULE,
@@ -748,3 +748,4 @@ module_exit(cpufreq_savagedzen_exit);
 MODULE_AUTHOR ("jsseidel");
 MODULE_DESCRIPTION ("'cpufreq_savagedzen' - A badass cpufreq governor! Based on Smartass");
 MODULE_LICENSE ("GPL");
+
