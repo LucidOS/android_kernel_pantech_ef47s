@@ -16,6 +16,9 @@ obj-$(CONFIG_CPU_FREQ_GOV_INTERACTIVE)	+= cpufreq_interactive.o
 # Add smartass2 GOV
 obj-$(CONFIG_CPU_FREQ_GOV_SMARTASS2)  += cpufreq_smartass2.o
 
+# Add interactivex GOV
+obj-$(CONFIG_CPU_FREQ_GOV_INTERACTIVEX)  += cpufreq_interactivex.o
+
 # CPUfreq cross-arch helpers
 obj-$(CONFIG_CPU_FREQ_TABLE)		+= freq_table.o
 
