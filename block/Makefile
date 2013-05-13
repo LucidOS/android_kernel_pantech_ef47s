@@ -19,3 +19,8 @@ obj-$(CONFIG_IOSCHED_TEST)	+= test-iosched.o
 
 obj-$(CONFIG_BLOCK_COMPAT)	+= compat_ioctl.o
 obj-$(CONFIG_BLK_DEV_INTEGRITY)	+= blk-integrity.o
+
+# LucidOS Kernel
+# Add SIO IOSCHED
+obj-$(CONFIG_IOSCHED_SIO)	+= sio-iosched.o
+# https://github.com/lowlevel-studios/sio-iosched
