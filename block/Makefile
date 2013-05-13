@@ -24,3 +24,6 @@ obj-$(CONFIG_BLK_DEV_INTEGRITY)	+= blk-integrity.o
 # Add SIO IOSCHED
 obj-$(CONFIG_IOSCHED_SIO)	+= sio-iosched.o
 # https://github.com/lowlevel-studios/sio-iosched
+
+# Add VR IOSCHED
+obj-$(CONFIG_IOSCHED_VR)        += vr-iosched.o
