@@ -23,6 +23,10 @@
 #include <linux/mfd/pm8xxx/core.h>
 #include <linux/input/pmic8xxx-pwrkey.h>
 
+#ifdef CONFIG_PANTECH_ERR_CRASH_LOGGING
+#include <mach/pantech_apanic.h>
+#endif
+
 /* define to enable reboot on very long key hold */
 #define VERY_LONG_HOLD_REBOOT
 
@@ -168,9 +172,9 @@ static irqreturn_t pwrkey_press_irq(int irq, void *_pwrkey)
 	input_sync(pwrkey->pwr);
 	}
 	pr_info("%s: Leave %s\n", __func__, __func__);
-//#ifdef CONFIG_PANTECH_ERR_CRASH_LOGGING
-//	pantech_force_dump_key(KEY_POWER, 1);
-//#endif
+#ifdef CONFIG_PANTECH_ERR_CRASH_LOGGING
+	pantech_force_dump_key(KEY_POWER, 1);
+#endif
 	return IRQ_HANDLED;
 }
 
@@ -223,9 +227,9 @@ static irqreturn_t pwrkey_release_irq(int irq, void *_pwrkey)
 	input_sync(pwrkey->pwr);
 	}
 	pr_info("%s: Leave %s\n", __func__, __func__);
-//#ifdef CONFIG_PANTECH_ERR_CRASH_LOGGING
-//	pantech_force_dump_key(KEY_POWER, 0);
-//#endif
+#ifdef CONFIG_PANTECH_ERR_CRASH_LOGGING
+	pantech_force_dump_key(KEY_POWER, 0);
+#endif
 	return IRQ_HANDLED;
 }
 
