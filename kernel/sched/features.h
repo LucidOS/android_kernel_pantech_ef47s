@@ -3,7 +3,10 @@
  * them to run sooner, but does not allow tons of sleepers to
  * rip the spread apart.
  */
-SCHED_FEAT(GENTLE_FAIR_SLEEPERS, true)
+SCHED_FEAT(GENTLE_FAIR_SLEEPERS, false)
+// The More performance
+// cherry-pick by https://github.com/CLUSTERDev/VR-CLUSTER-Kernel-jb/commit/c941117b15e1c924709312f2fdc05d1dc38d258f
+// ㅎㅎㅎㅎㅎㅎㅎㅎ Thanks 'Cluster-VegaRacer-kernel' ㅎㅎㅎㅎㅎㅎㅎㅎ
 
 /*
  * Place new tasks ahead so that they do not starve already running
