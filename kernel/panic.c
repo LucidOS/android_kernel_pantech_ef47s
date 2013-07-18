@@ -131,8 +131,6 @@ void panic(const char *fmt, ...)
 	 */
 	crash_kexec(NULL);
 
-	kmsg_dump(KMSG_DUMP_PANIC);
-
 	/*
 	 * Note smp_send_stop is the usual smp shutdown function, which
 	 * unfortunately means it may not be hardened to work in a panic
@@ -141,6 +139,8 @@ void panic(const char *fmt, ...)
 #ifndef CONFIG_PANTECH_ERR_CRASH_LOGGING
 	smp_send_stop();
 #endif
+
+	kmsg_dump(KMSG_DUMP_PANIC);
 
 	atomic_notifier_call_chain(&panic_notifier_list, 0, buf);
 
